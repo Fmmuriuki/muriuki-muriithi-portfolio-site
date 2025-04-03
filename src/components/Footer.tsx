@@ -1,4 +1,3 @@
-
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
@@ -8,11 +7,7 @@ export function Footer() {
     <footer className="bg-secondary/50 dark:bg-secondary/10 py-10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center">
-          <div className="mb-6">
-            <a href="#home" className="text-2xl font-bold text-primary">
-              Felix<span className="text-foreground">.dev</span>
-            </a>
-          </div>
+          <div className="mb-6"></div>
           
           <div className="flex items-center gap-4 mb-6">
             <a 
