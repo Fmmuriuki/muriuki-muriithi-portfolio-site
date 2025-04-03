@@ -52,7 +52,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium">0710654707</p>
+                  <p className="font-medium">+254710654707</p>
                 </div>
               </div>
               
