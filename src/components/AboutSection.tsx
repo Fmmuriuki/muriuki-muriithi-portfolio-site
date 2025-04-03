@@ -1,5 +1,5 @@
 
-import { User } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 export function AboutSection() {
   return (
@@ -8,8 +8,12 @@ export function AboutSection() {
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="w-full md:w-1/3 flex justify-center">
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-                <User className="w-40 h-40 text-white" />
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl">
+                <img 
+                  src="/lovable-uploads/4c784671-5e29-469e-bb9e-d56aa91bac8d.png" 
+                  alt="Felix Muriuki working on laptop" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-background p-4 rounded-lg shadow-lg">
                 <p className="font-bold text-primary">2025</p>
