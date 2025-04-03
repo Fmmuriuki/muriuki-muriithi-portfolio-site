@@ -1,5 +1,5 @@
 
-import { Brain, Database, Code, Monitor, Server, Lock, MobilePhone, Lightbulb } from "lucide-react";
+import { Brain, Database, Code, Monitor, Server, Lock, Smartphone, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export function InterestsSection() {
@@ -27,7 +27,7 @@ export function InterestsSection() {
     {
       title: "Mobile Development",
       description: "Exploring how to build apps for Android and iOS to reach wider audiences.",
-      icon: <MobilePhone className="h-12 w-12 text-primary" />,
+      icon: <Smartphone className="h-12 w-12 text-primary" />,
     },
     {
       title: "Cloud Computing",
