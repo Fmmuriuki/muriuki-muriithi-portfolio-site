@@ -1,5 +1,5 @@
 
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
@@ -41,6 +41,12 @@ export function HeroSection() {
             <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 animate-fade-up" style={{ animationDelay: "800ms" }}>
               <Button asChild size="lg" className="rounded-full px-8">
                 <a href="#contact">Get in Touch</a>
+              </Button>
+              <Button asChild variant="secondary" size="lg" className="rounded-full px-8">
+                <a href="/lovable-uploads/a01a4611-4fe2-430e-bb79-d1816065f742.png" download="Felix_Muriuki_CV.png">
+                  <Download className="mr-2" size={18} />
+                  Download CV
+                </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8">
                 <a href="#about">Learn More</a>
