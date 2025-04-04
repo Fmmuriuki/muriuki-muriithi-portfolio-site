@@ -7,7 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/components/ui/carousel";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 // Define the interfaces for our portfolio data
 interface PortfolioImage {
@@ -21,6 +22,10 @@ interface PortfolioImage {
 export function PortfolioSlider() {
   // State to track autoplay interval
   const [api, setApi] = useState<any>(null);
+  
+  // State for image viewer modal
+  const [selectedImage, setSelectedImage] = useState<PortfolioImage | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Portfolio images data
   const portfolioImages: PortfolioImage[] = [
@@ -96,6 +101,25 @@ export function PortfolioSlider() {
     }
   ];
 
+  // Function to open modal with selected image
+  const openImageModal = (image: PortfolioImage) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
+
+  // Function to download the current image
+  const downloadImage = () => {
+    if (selectedImage) {
+      // Create an anchor element
+      const a = document.createElement('a');
+      a.href = selectedImage.src;
+      a.download = `felix-design-${selectedImage.id}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  };
+
   // Set up autoplay functionality
   useEffect(() => {
     if (!api) return;
@@ -131,7 +155,11 @@ export function PortfolioSlider() {
               {portfolioImages.map((image) => (
                 <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <div className="overflow-hidden rounded-lg border border-border shadow-sm">
+                    <div 
+                      className="overflow-hidden rounded-lg border border-border shadow-sm cursor-pointer"
+                      onClick={() => openImageModal(image)}
+                      aria-label={`View ${image.title} design`}
+                    >
                       <div className="relative aspect-square overflow-hidden">
                         <img
                           src={image.src}
@@ -164,6 +192,42 @@ export function PortfolioSlider() {
             </div>
           </Carousel>
         </div>
+
+        {/* Image Modal */}
+        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+          <DialogContent className="max-w-3xl w-full p-1 sm:p-6">
+            {selectedImage && (
+              <div className="flex flex-col gap-4">
+                <div className="relative">
+                  <img 
+                    src={selectedImage.src} 
+                    alt={selectedImage.alt} 
+                    className="w-full h-auto object-contain rounded-lg"
+                  />
+                  <button 
+                    onClick={() => setIsModalOpen(false)}
+                    className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm p-1 rounded-full"
+                    aria-label="Close image viewer"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
+                
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold">{selectedImage.title}</h3>
+                  <p className="text-muted-foreground mt-1">{selectedImage.description}</p>
+                  
+                  <button
+                    onClick={downloadImage}
+                    className="mt-4 inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+                  >
+                    Download Image
+                  </button>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
