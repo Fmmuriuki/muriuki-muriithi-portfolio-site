@@ -7,6 +7,7 @@ import { EducationSection } from "@/components/EducationSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { InterestsSection } from "@/components/InterestsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
+import { PortfolioSlider } from "@/components/PortfolioSlider"; // Import the new component
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -47,6 +48,10 @@ const Index = () => {
       
       <FadeInSection>
         <ProjectsSection />
+      </FadeInSection>
+      
+      <FadeInSection>
+        <PortfolioSlider /> {/* Add the new component right after ProjectsSection */}
       </FadeInSection>
       
       <FadeInSection>
