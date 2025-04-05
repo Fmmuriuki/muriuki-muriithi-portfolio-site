@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+
+import { Facebook, Github, Linkedin, Mail, TiktokIcon } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,24 +12,49 @@ export function Footer() {
           
           <div className="flex items-center gap-4 mb-6">
             <a 
-              href="https://github.com" 
+              href="https://www.facebook.com/share/18uSR2dF4n/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="h-10 w-10 rounded-full bg-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+              aria-label="Visit my Facebook profile"
             >
-              <Github size={18} />
+              <Facebook size={18} />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/felix-m-muriuki-05257982" 
               target="_blank" 
               rel="noopener noreferrer"
               className="h-10 w-10 rounded-full bg-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+              aria-label="Visit my LinkedIn profile"
             >
               <Linkedin size={18} />
             </a>
             <a 
-               href="mailto:fmwmuriuki@gmail.com" 
+              href="https://www.tiktok.com/@felix_amuray?_t=ZM-8vG8tnJcin9&_r=1" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="h-10 w-10 rounded-full bg-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+              aria-label="Visit my TikTok profile"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="18" 
+                height="18" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="lucide lucide-tiktok"
+              >
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg>
+            </a>
+            <a 
+              href="mailto:fmwmuriuki@gmail.com" 
+              className="h-10 w-10 rounded-full bg-background flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+              aria-label="Send me an email"
             >
               <Mail size={18} />
             </a>
